@@ -1,7 +1,9 @@
 from django.db import models
+import uuid
 
 # nama model yang kamu definisikan.
 class MoodEntry(models.Model): # kelas dasar yang digunakan untuk mendefinisikan model dalam Django.
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     mood = models.CharField(max_length=255)
     time = models.DateField(auto_now_add=True)
     feelings = models.TextField()
